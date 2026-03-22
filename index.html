@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gunjan Lens</title>
+
+<style>
+
+/* RESET */
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background-image:url("images/texture.jpg");
+    background-size:cover;
+    background-attachment:fixed;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:black;
+    padding:10px 30px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo img{
+    height:60px;
+    display:block;
+}
+
+.navbar nav{
+    display:flex;
+}
+
+.navbar nav a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    font-size:16px;
+}
+
+/* MENU BUTTON */
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+.navbar nav{
+    display:none;
+    flex-direction:column;
+    background:black;
+    position:absolute;
+    top:70px;
+    right:0;
+    width:200px;
+}
+
+.navbar nav.active{
+    display:flex;
+}
+
+.navbar nav a{
+    padding:10px;
+    border-bottom:1px solid #333;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    padding:40px;
+}
+
+/* ================= CATEGORY GRID ================= */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:30px;
+}
+
+.category-card{
+    position:relative;
+    overflow:hidden;
+    display:block;
+    text-decoration:none;
+}
+
+.category-card img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    transition:transform 0.4s;
+}
+
+.category-card:hover img{
+    transform:scale(1.05);
+}
+
+.overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background:rgba(0,0,0,0.5);
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* GRID RESPONSIVE */
+
+@media (min-width:700px){
+.category-grid{
+    grid-template-columns:1fr 1fr;
+}
+}
+
+@media (min-width:1100px){
+.category-grid{
+    grid-template-columns:1fr 1fr 1fr;
+}
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+    column-count:3;
+    column-gap:20px;
+    padding:20px;
+}
+
+.gallery img{
+    width:100%;
+    margin-bottom:20px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+@media (max-width:900px){
+.gallery{
+    column-count:2;
+}
+}
+
+@media (max-width:600px){
+.gallery{
+    column-count:1;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<div class="logo">
+<a href="#">
+<img src="images/logo.png" alt="Logo">
+</a>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="nav-menu">
+<a href="#">Home</a>
+<a href="#">Portraits</a>
+<a href="#">Birds</a>
+<a href="#">Wildlife</a>
+<a href="#">Nature</a>
+<a href="#">Heritage</a>
+
+</nav>
+
+</header>
+
+<!-- ================= CONTENT ================= -->
+
+<div class="content">
+
+<!-- ===== CATEGORY GRID (HOME PAGE) ===== -->
+
+<div class="category-grid">
+
+<a href="#" class="category-card">
+<img src="images/portraits.jpg">
+<div class="overlay">Portraits</div>
+</a>
+
+<a href="#" class="category-card">
+<img src="images/birds.jpg">
+<div class="overlay">Birds</div>
+</a>
+
+<a href="#" class="category-card">
+<img src="images/wildlife.jpg">
+<div class="overlay">Wildlife</div>
+</a>
+
+<a href="#" class="category-card">
+<img src="images/nature.jpg">
+<div class="overlay">Nature</div>
+</a>
+
+<a href="#" class="category-card">
+<img src="images/heritage.jpg">
+<div class="overlay">Heritage</div>
+</a>
+
+</div>
+
+<!-- ===== OPTIONAL: GALLERY SECTION ===== -->
+
+<!-- Uncomment later when needed -->
+<!--
+<div class="gallery">
+
+<img src="https://via.placeholder.com/400x600">
+<img src="https://via.placeholder.com/400x500">
+<img src="https://via.placeholder.com/400x700">
+
+</div>
+-->
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+function toggleMenu(){
+  const menu = document.getElementById("nav-menu");
+  menu.classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>
