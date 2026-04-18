@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birds | The Gunjan Lens</title>
+
+<style>
+
+/* ================= RESET ================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+    margin:0;
+font-family:Arial, sans-serif;
+    background-image:url("images/texture.jpg");
+    background-size:cover;
+    background-attachment:fixed;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+    background:black;
+    padding:10px 30px;
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(8px);
+}
+
+.logo img{
+    height:60px;
+    display:block;
+}
+
+.navbar nav{
+display:flex;
+}
+
+.navbar nav a{
+color:white;
+    margin-left:20px;
+text-decoration:none;
+    font-size:16px;
+}
+
+/* MENU BUTTON */
+.menu-toggle{
+display:none;
+font-size:28px;
+    color:white;
+cursor:pointer;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+.navbar nav{
+    display:none;
+    flex-direction:column;
+    background:black;
+    position:absolute;
+    top:70px;
+    right:0;
+    width:200px;
+}
+
+.navbar nav.active{
+    display:flex;
+}
+
+.navbar nav a{
+    padding:10px;
+    border-bottom:1px solid #333;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    padding:40px;
+}
+
+/* ================= CATEGORY GRID ================= */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:30px;
+}
+
+.category-card{
+    position:relative;
+    overflow:hidden;
+    display:block;
+    text-decoration:none;
+}
+
+.category-card img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    transition:transform 0.4s;
+}
+
+.category-card:hover img{
+    transform:scale(1.05);
+}
+
+.overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background:rgba(0,0,0,0.5);
+    color:white;
+text-align:center;
+    padding:15px;
+}
+
+/* GRID RESPONSIVE */
+
+@media (min-width:700px){
+.category-grid{
+    grid-template-columns:1fr 1fr;
+}
+}
+
+@media (min-width:1100px){
+.category-grid{
+    grid-template-columns:1fr 1fr 1fr;
+}
+}
+/* ================= HERO ================= */
+
+.hero{
+text-align:center;
+padding:70px 20px 40px;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
+letter-spacing:2px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+color:#ddd;
+line-height:1.7;
+}
+/* ================= GALLERY ================= */
+
+.gallery{
+column-count:3;
+column-gap:18px;
+padding:30px;
+}
+
+.gallery-item{
+position:relative;
+margin-bottom:18px;
+overflow:hidden;
+border-radius:14px;
+break-inside:avoid;
+cursor:pointer;
+}
+
+.gallery img{
+width:100%;
+display:block;
+border-radius:14px;
+transition:transform 0.5s ease;
+}
+
+.gallery-item:hover img{
+transform:scale(1.05);
+}
+
+.caption{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+padding:14px;
+font-size:14px;
+background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+opacity:0;
+transition:0.3s;
+}
+
+.gallery-item:hover .caption{
+opacity:1;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+text-align:center;
+padding:40px 20px;
+color:#aaa;
+font-size:14px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+.gallery{
+column-count:2;
+}
+}
+
+@media(max-width:768px){
+
+nav{
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+right:0;
+background:black;
+width:220px;
+padding:15px;
+}
+
+nav.active{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+}
+
+@media(max-width:600px){
+.gallery{
+column-count:1;
+padding:18px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<div class="logo">
+<a href="index.html">
+<img src="images/logo.png" alt="Logo">
+</a>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="portraits.html">Portraits</a>
+<a href="birds.html">Birds</a>
+<a href="wildlife.html">Wildlife</a>
+<a href="nature.html">Nature</a>
+<a href="heritage.html">Heritage</a>
+</nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+<h1>Birds</h1>
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section class="gallery">
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776535758/DSC06605_te7u4q.jpg" loading="lazy">
+<div class="caption">Kingfisher</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1773763993/pdazfcyef2bn89d2jond.jpg" loading="lazy">
+<div class="caption">Flight in Focus</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776535762/DSC07404_ug3s7c.jpg" loading="lazy">
+<div class="caption">Still Eyes</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776535872/DSC06379-3_vfolbh.jpg" loading="lazy">
+<div class="caption">Wild Grace</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776535873/DSC06699-2_uyfbsl.jpg" loading="lazy">
+<div class="caption">Morning Visitor</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776535597/DSC06253_z2inmh.jpg" loading="lazy">
+<div class="caption">Motion in the Wild</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776536207/DSC_0178_fjzwbo.jpg" loading="lazy">
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776536207/DSC07311_icrmjj.jpg" loading="lazy">
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776536207/DSC07411_vnntob.jpg" loading="lazy">
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776535761/DSC07327_xf5avx.jpg" loading="lazy">
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776536208/DSC06355_rjffgt.jpg" loading="lazy">
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776534210/birds_bxxp17.jpg" loading="lazy">
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776536646/DSC07412_ncq33u.jpg" loading="lazy">
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776536647/wallpaper_Desktop_t73sy0.jpg" loading="lazy">
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776536647/DSC07374_foefdl.jpg" loading="lazy">
+</div>
+
+<div class="gallery-item">
+<img src="https://res.cloudinary.com/dxkgi0m8b/image/upload/v1776536648/DSC07331_q80vzt.jpg" loading="lazy">
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+© 2026 The Gunjan Lens | Wings framed with patience.
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+function toggleMenu(){
+document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
