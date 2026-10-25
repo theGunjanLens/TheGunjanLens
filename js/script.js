@@ -57,15 +57,21 @@ image.classList.add('is-loaded');
 image.removeAttribute('data-src');
 };
 
-galleryImages.forEach((image) => {
+galleryImages.forEach((image, index) => {
 const realSrc = image.getAttribute('src');
 if (!realSrc || realSrc === lazyPlaceholder) return;
 image.dataset.src = realSrc;
-image.setAttribute('src', lazyPlaceholder);
 image.setAttribute('loading', 'lazy');
 image.setAttribute('decoding', 'async');
 image.style.cursor = 'pointer';
 image.addEventListener('click', () => openLightbox(image));
+
+if (index < 3) {
+loadLazyImage(image);
+return;
+}
+
+image.setAttribute('src', lazyPlaceholder);
 });
 
 if ('IntersectionObserver' in window) {
