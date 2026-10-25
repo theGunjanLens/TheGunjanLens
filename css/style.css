@@ -6,27 +6,20 @@ box-sizing:border-box;
 
 body{
 font-family:Arial,sans-serif;
-background:url("../images/texture.jpg") center center / cover no-repeat fixed;
-color:white;
-}
-
-@media (orientation: portrait){
-body{
+background-color:#000;
+background-image:url("../images/texture.jpg");
 background-position:center center;
-background-size:auto 100vh;
+background-repeat:no-repeat;
+background-size:cover;
 background-attachment:scroll;
-}
-}
-
-@media (orientation: landscape){
-body{
-background-position:center center;
-background-size:100vw auto;
-}
+color:white;
+min-height:100vh;
 }
 
 @media (max-width:768px){
 body{
+background-position:center center;
+background-size:cover;
 background-attachment:scroll;
 }
 }
